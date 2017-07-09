@@ -35,6 +35,10 @@
           <input class="waves-effect waves-light btn deep-orange" type="submit" value="Entrar">
         </div>
       </form>
+      <div class="row center-align">
+      	<span class="dark-text">Não possui conta?</span>
+      	<a class="waves-effect waves-orange btn-flat-small white-text" href="cadastro.php">Cadastrar</a>
+      </div>
     </div>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
