@@ -32,7 +32,8 @@
           </div>
         </div>
         <div class="row center-align">
-          <input class="waves-effect waves-light btn deep-orange" type="submit" value="Entrar">
+          <!--<input class="waves-effect waves-light btn deep-orange" href="inicial.php" type="submit" value="Entrar">-->
+          <a href="inicial.php" class="waves-effect waves-light btn deep-orange">Entrar</a>
         </div>
       </form>
       <div class="row center-align">

@@ -39,91 +39,109 @@
               <span class="card-title">Página para gestão da conta.</span>
               <div class="card-tabs">
                 <ul class="tabs tabs-fixed-width">
-                  <li class="tab"><a class="active" href="#pedircarona">Informações Pessoais</a></li>
-                  <li class="tab"><a href="#oferecercarona">Caronas</a></li>
+                  <li class="tab"><a class="active" href="#informacoes">Informações Pessoais</a></li>
+                  <li class="tab"><a href="#caronas">Caronas</a></li>
                 </ul>
               </div>
               <div class="card-content teal accent-4">
-                <div id="oferecercarona">
+                <div id="informacoes">
+                  <span class="white-text">ATULAIZAR INFORMAÇÕES</span>
                   <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
                     <div class="row">
-                      <div class="col s6 left-align">
-                        <div class="row left-align">
-                          <div class="col s6">
-                            <i class="material-icons">room</i><span> : </span>
-                            <a id="btorigem" href="#maplayer" class="waves-effect waves-light btn deep-orange">Origem</a>
-                          </div>
-                        </div>
-                        <div class="row left-align">
-                          <div class="col s6">
-                            <i class="material-icons">room</i><span> : </span>
-                            <a id="btdestino" href="#maplayer" class="waves-effect waves-light btn deep-orange">Destino</a>
-                            <a href="#maplayer" class="waves-effect waves-light btn-floating deep-orange"><i class="material-icons">add</i></a>
-                          </div>
-                        </div>
-                        <div class="row left-align">
-                          <div class="col s6">
-                            <i class="material-icons prefix">today</i>
-                            <label for="" class="white-text">Data da Viagem:</label>
-                            <input id="data" type="date" class="datepicker">
-                          </div>
-                        </div>
-                        <div class="row left-align">
-                          <div class="col s6">
-                            <i class="material-icons prefix">schedule</i>
-                            <label for="hora" class="white-text">Hora da Viagem</label>
-                            <input id="hora" type="date" class="timepicker">
-                          </div>
-                        </div>
-                        <div class="row left-align">
-                          <div class="input-field col s6">
-                            <i class="material-icons prefix">label_outline</i>
-                            <input id="custo" type="number" step="any" min=0 class="validate">
-                            <label for="custo" class="white-text">Ajuda de Custo</label>
-                          </div>
-                        </div>
+                      <div class="input-field col s6">
+                        <input id="name" type="text" class="validate">
+                        <label for="name" class="white-text">Nome</label>
                       </div>
-                      <div class="col s4"><iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBOFD-ooXEl4PcF6ilojtIG2HNkKwa2VrM&q=Space+Needle,Seattle+WA" width="400px" height="400px"></iframe></div>
+                      <div class="input-field col s6">
+                       <input type="date" class="datepicker">
+                       <label for="birthdate" class="white-text">Data de nascimento</label>
+                     </div>
+                   </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="email" type="email" class="validate">
+                      <label for="email" class="white-text">Email</label>
                     </div>
-                    <div class="row">
-                      <div class="row center-align">
-                        <input class="waves-effect waves-light btn deep-orange" type="submit" value="Confirmar">
-                      </div>
+                    <div class="input-field col s6">
+                      <input id="password" type="password" class="validate">
+                      <label for="password" class="white-text">Password</label>
                     </div>
-                  </form>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <select>
+                        <option value="" disabled selected>Escolha seu sexo</option>
+                        <option value="1">Masculino</option>
+                        <option value="2">Feminino</option>
+                      </select>
+                      <label class="white-text">Sexo</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input id="telefone" type="tel" class="validate">
+                      <label for="telefone" class="white-text">Telefone</label>
+                    </div>
+                  </div>
+                  <div class="row center-align">
+                  <input class="waves-effect waves-light btn deep-orange" type="submit" value="Salvar">
+                  </div>
+                </form>
                 </div>
-                <div id="pedircarona">
-                  <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-                    <div class="row">
-                      <div class="col s6 left-align">
-                        <div class="row left-align">
-                          <div class="col s6">
-                            <i class="material-icons">room</i><span> : </span>
-                            <a id="btorigem" href="#maplayer" class="waves-effect waves-light btn deep-orange">Origem</a>
+                <div id="caronas">
+                  <span class="white-text">SUAS CARONAS</span>
+                  <ul class="collapsible" data-collapsible="accordion">
+                    <li>
+                    <div class="collapsible-header black-text left-align"><span>Origem: origem</br>Destino: destino</br>Data de saida: saida</span></div>
+                      <div class="collapsible-body">
+                        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+                          <div class="row">
+                            <div class="col s6 left-align">
+                              <div class="row left-align">
+                                <div class="col s6">
+                                  <i class="material-icons">room</i><span> : </span>
+                                  <a id="btorigem" href="#maplayer" class="waves-effect waves-light btn deep-orange">Origem</a>
+                                </div>
+                              </div>
+                              <div class="row left-align">
+                                <div class="col s8">
+                                  <i class="material-icons">room</i><span> : </span>
+                                  <a id="btdestino" href="#maplayer" class="waves-effect waves-light btn deep-orange">Destino</a>
+                                  <a href="#maplayer" class="waves-effect waves-light btn-floating deep-orange"><i class="material-icons">add</i></a>
+                                </div>
+                              </div>
+                              <div class="row left-align">
+                                <div class="col s6">
+                                  <i class="material-icons prefix">today</i>
+                                  <label for="" class="white-text">Data da Viagem:</label>
+                                  <input id="data" type="date" class="datepicker">
+                                </div>
+                              </div>
+                              <div class="row left-align">
+                                <div class="col s6">
+                                  <i class="material-icons prefix">schedule</i>
+                                  <label for="hora" class="white-text">Hora da Viagem</label>
+                                  <input id="hora" type="date" class="timepicker">
+                                </div>
+                              </div>
+                              <div class="row left-align">
+                                <div class="input-field col s6">
+                                  <i class="material-icons prefix">label_outline</i>
+                                  <input id="custo" type="number" step="any" min=0 class="validate">
+                                  <label for="custo" class="white-text">Ajuda de Custo</label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col s2 offset-s1"><iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBOFD-ooXEl4PcF6ilojtIG2HNkKwa2VrM&q=Space+Needle,Seattle+WA" width="300px" height="400px"></iframe></div>
                           </div>
-                        </div>
-                        <div class="row left-align">
-                          <div class="col s6">
-                            <i class="material-icons">room</i><span> : </span>
-                            <a id="btdestino" href="#maplayer" class="waves-effect waves-light btn deep-orange">Destino</a>
-                            <a href="#maplayer" class="waves-effect waves-light btn-floating deep-orange"><i class="material-icons">add</i></a>
+                          <div class="row">
+                            <div class="row center-align">
+                              <input class="waves-effect waves-light btn deep-orange" type="submit" value="Atualizar">
+                              <a href="#" class="waves-effect waves-light btn deep-orange">Deletar</a>
+                            </div>
                           </div>
-                        </div>
-                        <div class="row left-align">
-                          <div class="col s6">
-                            <i class="material-icons prefix">today</i>
-                            <label for="" class="white-text">Data da Viagem:</label>
-                            <input id="data" type="date" class="datepicker">
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col s4"><iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBOFD-ooXEl4PcF6ilojtIG2HNkKwa2VrM&q=Space+Needle,Seattle+WA" width="400px" height="200px"></iframe></div>
-                    <div class="row">
-                      <div class="row center-align col s12">
-                        <input class="waves-effect waves-light btn deep-orange" type="submit" value="Pesquisar">
+                        </form>
                       </div>
-                    </div>
-                  </form>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
