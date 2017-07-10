@@ -21,14 +21,14 @@
           <div class="input-field col s6 offset-s3">
           	<i class="material-icons prefix">email</i>
             <input id="email" type="email" class="validate">
-            <label for="email">Email</label>
+            <label for="email" class="white-text">Email</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s6 offset-s3">
           	<i class="material-icons prefix">https</i>
             <input id="password" type="password" class="validate">
-            <label for="password">Senha</label>
+            <label for="password" class="white-text">Senha</label>
           </div>
         </div>
         <div class="row center-align">

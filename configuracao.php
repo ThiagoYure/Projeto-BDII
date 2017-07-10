@@ -21,7 +21,7 @@
           <a href="#!name"><span class="white-text name">Me</span></a>
           <a href="#!email"><span class="white-text email">me@gmail.com</span></a>
         </div></li>
-        <li><a class="waves-effect" href="configuracao.php"><i class="material-icons">settings</i>Configurações</a></li>
+        <li><a class="waves-effect" href="configuracoes.php"><i class="material-icons">settings</i>Configurações</a></li>
         <li><a class="waves-effect" href="index.php"><i class="material-icons">power_settings_new</i>Logout</a></li>
       </ul>
       <div class="navbar-fixed">
@@ -36,11 +36,11 @@
         <div class="row">
           <div class="col s12 center-align">
             <div class="card teal accent-4 white-text">
-              <span class="card-title">Sistema Destinado a interessados em oferecer e/ou pedir carona</span>
+              <span class="card-title">Página para gestão da conta.</span>
               <div class="card-tabs">
                 <ul class="tabs tabs-fixed-width">
-                  <li class="tab"><a class="active" href="#pedircarona">Pedir Carona</a></li>
-                  <li class="tab"><a href="#oferecercarona">Oferecer Carona</a></li>
+                  <li class="tab"><a class="active" href="#pedircarona">Informações Pessoais</a></li>
+                  <li class="tab"><a href="#oferecercarona">Caronas</a></li>
                 </ul>
               </div>
               <div class="card-content teal accent-4">
