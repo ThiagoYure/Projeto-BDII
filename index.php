@@ -1,8 +1,32 @@
 <?php
-session_start();
+  session_start();
+  include_once("conexao.php");
+  if($_POST){
+    if((!empty($_POST['email'])) && (!empty($_POST['senha']))){
+      $email = $_POST['email'];
+      $senha = $_POST['senha'];
+      //$senhaC = md5($senha);
+
+      $sql = "SELECT * FROM usuario WHERE email = '$email' AND senha = '$senha'";
+      $result = mysqli_query($conn, $sql);
+      $resultado = mysqli_fetch_assoc($result);
+
+      if(empty($resultado)){
+        $_SESSION['loginErro'] = "Usuario ou senha invalido";
+        echo "<script>alert('Email ou senha inválidos!')</script>";
+        //header("Location: index.php");
+      } else {
+        $_SESSION['email'] = $email;
+        $_SESSION['senha'] = $senha;
+        header("Location: inicial.php");
+      } 
+
+    } else {
+      echo "<script>alert('Preencha os campos vazios!')</script>";
+      //header("Location: index.php");
+    }
+  }
 ?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +45,7 @@ session_start();
         	<img class="small" src="images/EasyRide.png" height="300px">
     </div>
     <div class="container">
-      <form name="login" method="POST" action="autenticarUser.php">
+      <form name="login" method="POST" action="#">
         <div class="row">
           <div class="input-field col s6 offset-s3">
           	<i class="material-icons prefix">email</i>
@@ -40,14 +64,6 @@ session_start();
           <input class="waves-effect waves-light btn deep-orange" type="submit" value="Entrar">
         </div>
       </form>
-      <p>
-        <?php
-          if(isset($_SESSION['loginErro'])){
-            echo $_SESSION['loginErro'];
-            unset($_SESSION['loginErro']);
-          }
-        ?>
-      </p>
       <div class="row center-align">
       	<span class="dark-text">Não possui conta?</span>
       	<a class="waves-effect waves-orange btn-flat-small white-text" href="cadastro.php">Cadastrar</a>

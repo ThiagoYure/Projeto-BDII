@@ -13,7 +13,8 @@
 
       if(empty($resultado)){
         $_SESSION['loginErro'] = "Usuario ou senha invalido";
-        header("Location: index.php");
+        echo "<script>alert('Email ou senha inválidos!')</script>";
+        //header("Location: index.php");
       } else {
         $_SESSION['email'] = $email;
         $_SESSION['senha'] = $senha;

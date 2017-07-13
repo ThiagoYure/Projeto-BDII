@@ -2,7 +2,7 @@
   $servidor = "localhost";
   $usuario = "root";
   $senha = "";
-  $dbname = "login";
+  $dbname = "easyride";
 
   $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
   
