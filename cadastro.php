@@ -28,6 +28,12 @@
           </div>
         </div>
         <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="email" class="validate">
+            <label for="email" class="white-text" data-error="wrong" data-success="right">Nome de usuário</label>
+          </div>
+        </div>
+        <div class="row">
           <div class="input-field col s6">
             <input id="email" type="email" class="validate">
             <label for="email" class="white-text">Email</label>

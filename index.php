@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,26 +21,33 @@
         	<img class="small" src="images/EasyRide.png" height="300px">
     </div>
     <div class="container">
-      <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+      <form name="login" method="POST" action="autenticarUser.php">
         <div class="row">
           <div class="input-field col s6 offset-s3">
           	<i class="material-icons prefix">email</i>
-            <input id="email" type="email" class="validate">
+            <input id="email" type="email" name="email" class="validate">
             <label for="email" class="white-text">Email</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s6 offset-s3">
           	<i class="material-icons prefix">https</i>
-            <input id="password" type="password" class="validate">
+            <input id="password" type="password" name="senha" class="validate">
             <label for="password" class="white-text">Senha</label>
           </div>
         </div>
         <div class="row center-align">
-          <!--<input class="waves-effect waves-light btn deep-orange" href="inicial.php" type="submit" value="Entrar">-->
-          <a href="inicial.php" class="waves-effect waves-light btn deep-orange">Entrar</a>
+          <input class="waves-effect waves-light btn deep-orange" type="submit" value="Entrar">
         </div>
       </form>
+      <p>
+        <?php
+          if(isset($_SESSION['loginErro'])){
+            echo $_SESSION['loginErro'];
+            unset($_SESSION['loginErro']);
+          }
+        ?>
+      </p>
       <div class="row center-align">
       	<span class="dark-text">Não possui conta?</span>
       	<a class="waves-effect waves-orange btn-flat-small white-text" href="cadastro.php">Cadastrar</a>
