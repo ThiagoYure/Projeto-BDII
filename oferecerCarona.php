@@ -1,7 +1,7 @@
 <!DOCTYPE html>
   <html>
     <head>
-    <?php
+      <?php
       session_start();
       if((!isset ($_SESSION['email']) == true) and (!isset ($_SESSION['senha']) == true)){
         unset($_SESSION['login']);
@@ -27,7 +27,7 @@
           <div class="background">
             <img class="responsive-img" src="images/carona.jpg">
           </div>
-          <a href="configuracao.php"><span id="email" class="white-text email">me@gmail.com</span></a>
+          <a href="configuracao.php"><span id="email" class="white-text email"></span></a>
         </div></li>
         <li><a class="waves-effect" href="configuracao.php"><i class="material-icons">settings</i>Configurações</a></li>
         <li><a class="waves-effect" href="carona.php"><i class="material-icons">directions_car</i>Caronas</a></li>
@@ -41,34 +41,49 @@
           </div>
         </nav>
       </div></br></br></br>
-      <div class="row">
-        <a href="pedirCarona.php">
-          <div class="col s4 offset-s2">
-            <div class="card small">
-              <div class="card-image">
-                <img src="images/carona.jpg">
-                <span class="card-title black-text">Pedir Carona</span>
-              </div>
-              <div class="card-content">
-                <p>Deseja procurar uma carona próxima a você? Clique em mim!</p>
-              </div>
-            </div>
+      <div class="container">
+      <form>
+        <div class="row">
+          <div class="input-field col s6">
+           <input id="data" type="date" class="datepicker">
+           <label for="data" class="white-text">Data da viagem</label>
           </div>
-        </a>
-        <a href="oferecerCarona.php">
-          <div class="col s4">
-            <div class="card small">
-              <div class="card-image">
-                <img src="images/carona.png">
-                <span class="card-title black-text">Oferecer Carona</span>
-              </div>
-              <div class="card-content">
-                <p>Deseja oferecer uma carona? Clique em mim!</p>
-              </div>
-            </div>
+          <div class="input-field col s6">
+           <input id="hora" type="time" class="timepicker">
+           <label for="hora" class="white-text">Hora da viagem</label>
           </div>
-        </a>
-      </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+           <input id="origem" type="text" class="validate">
+           <label for="origem" class="white-text">Origem</label>
+          </div>
+          <div class="input-field col s6">
+           <input id="destino" type="text" class="validate">
+           <label for="destino" class="white-text">Destino</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+           <input id="wayPoint" type="text" class="validate">
+           <label for="wayPoint" class="white-text">Ponto de parada</label>
+          </div>
+          <a id="add" class="btn-floating btn-medium waves-effect waves-light cyan"><i class="material-icons">add</i></a>
+          <a id="delete" class="btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">close</i></a>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+           <input id="custo" type="number" min="0" step="0.10" class="validate">
+           <label for="custo" class="white-text">Ajuda de Custo</label>
+          </div>
+        </div>
+        <div id="map" style="height:400px;width:950px;background-color:white"></div></br></br>
+        <div class="row center-align">
+          <input id="salvar" class="waves-effect waves-light btn deep-orange" type="button" value="salvar">
+        </div>
+      </form>
+      </div> 
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd0aCIFSeFdgJlgEb11e7Sc3ieIocsd0c"></script>
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript">
         $( document ).ready(function(){
@@ -97,5 +112,6 @@
         document.getElementById("email").innerHTML = "<?php echo $_SESSION['email'] ?>";
       </script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/oferecerCarona.js"></script>
     </body>
 </html>
