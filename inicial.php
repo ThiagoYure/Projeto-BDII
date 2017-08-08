@@ -30,7 +30,7 @@
           <a href="configuracao.php"><span id="email" class="white-text email">me@gmail.com</span></a>
         </div></li>
         <li><a class="waves-effect" href="configuracao.php"><i class="material-icons">settings</i>Configurações</a></li>
-        <li><a class="waves-effect" href="carona.php"><i class="material-icons">directions_car</i>Caronas</a></li>
+        <li><a class="waves-effect" href="minhasCaronas.php"><i class="material-icons">directions_car</i>Caronas</a></li>
         <li><a class="waves-effect" href="index.php"><i class="material-icons">power_settings_new</i>Logout</a></li>
       </ul>
       <div class="navbar-fixed">

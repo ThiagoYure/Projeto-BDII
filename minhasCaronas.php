@@ -1,14 +1,21 @@
 <!DOCTYPE html>
   <html>
     <head>
-      <?php
+    <?php
       session_start();
+      include('conexao.php');
       if((!isset ($_SESSION['email']) == true) and (!isset ($_SESSION['senha']) == true)){
         unset($_SESSION['login']);
         unset($_SESSION['senha']);
         header('location:index.php');
       }
       $userLogado = $_SESSION['email'];
+      if($conn != null){
+        $sql = "'Select c.origem, c.destino, c.data, c.hora
+        from carona c, pontosdeparada p
+        where c.usuario = p.usuario
+        and c.usuario = '$email'"
+      }
       ?>
       <title>EasyRide</title>
       <meta charset="UTF-8">
@@ -27,10 +34,10 @@
           <div class="background">
             <img class="responsive-img" src="images/carona.jpg">
           </div>
-          <a href="configuracao.php"><span id="email" class="white-text email"></span></a>
+          <a href="configuracao.php"><span id="email" class="white-text email">me@gmail.com</span></a>
         </div></li>
         <li><a class="waves-effect" href="configuracao.php"><i class="material-icons">settings</i>Configurações</a></li>
-        <li><a class="waves-effect" href="carona.php"><i class="material-icons">directions_car</i>Caronas</a></li>
+        <li><a class="waves-effect" href="minhasCaronas.php"><i class="material-icons">directions_car</i>Caronas</a></li>
         <li><a class="waves-effect" href="index.php"><i class="material-icons">power_settings_new</i>Logout</a></li>
       </ul>
       <div class="navbar-fixed">
@@ -41,48 +48,11 @@
           </div>
         </nav>
       </div></br></br></br>
-      <div class="container">
-      <form>
-        <div class="row">
-          <div class="input-field col s6">
-           <input id="data" type="date" class="datepicker">
-           <label for="data" class="white-text">Data da viagem</label>
-          </div>
-          <div class="input-field col s6">
-           <input id="hora" type="time" class="timepicker">
-           <label for="hora" class="white-text">Hora da viagem</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s6">
-           <input id="origem" type="text" class="validate">
-           <label for="origem" class="white-text">Origem</label>
-          </div>
-          <div class="input-field col s6">
-           <input id="destino" type="text" class="validate">
-           <label for="destino" class="white-text">Destino</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s4">
-           <input id="wayPoint" type="text" class="validate">
-           <label for="wayPoint" class="white-text">Ponto de parada</label>
-          </div>
-          <a id="add" class="btn-floating btn-medium waves-effect waves-light cyan"><i class="material-icons">add</i></a>
-        </div>
-        <div class="row">
-          <div class="input-field col s6">
-           <input id="custo" type="number" min="0" step="0.10" class="validate">
-           <label for="custo" class="white-text">Ajuda de Custo</label>
-          </div>
-        </div>
-        <div id="map" style="height:400px;width:950px;background-color:white"></div></br></br>
-        <div class="row center-align">
-          <input id="salvar" class="waves-effect waves-light btn deep-orange" type="button" value="salvar alterações">
-        </div>
-      </form>
-      </div> 
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd0aCIFSeFdgJlgEb11e7Sc3ieIocsd0c"></script>
+      <div class="container teal accent-4">
+        <h4 class="white-text center">Minhas Caronas</h4>
+        <ul id="caronas" class="collection">  
+        </ul>
+      </div>
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript">
         $( document ).ready(function(){
@@ -111,6 +81,5 @@
         document.getElementById("email").innerHTML = "<?php echo $_SESSION['email'] ?>";
       </script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
-      <script type="text/javascript" src="js/editarCarona.js"></script>
     </body>
 </html>

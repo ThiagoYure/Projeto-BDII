@@ -112,6 +112,6 @@
         document.getElementById("email").innerHTML = "<?php echo $_SESSION['email'] ?>";
       </script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
-      <script type="text/javascript" src="js/oferecerCarona.js"></script>
+      <script type="text/javascript" src="js/atualizarCarona.js"></script>
     </body>
 </html>

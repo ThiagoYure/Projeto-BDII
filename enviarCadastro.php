@@ -9,24 +9,21 @@
 	    $username = $_POST['user'];
 	    $email = $_POST['email'];
 	    $senha = $_POST['senha'];
-	    echo $senha;
 	    $sexo = $_POST['sexo'];
 	    $telefone = $_POST['telefone'];
 
-	    $sql = "INSERT INTO usuario (nome, data, user, email, senha, sexo, telefone)
-      	VALUES ('$nome', '$nascimento','$username','$email','$senha','$sexo','$telefone')";
+	    $sql = "INSERT INTO usuario (email, nome, user, sexo, nascimento, telefone, senha)
+      	VALUES ('$email', '$nome', '$username', '$sexo', '$nascimento', '$telefone', '$senha')";
 
      	$result = mysqli_query($conn, $sql);
-     	echo $result;
-     	$resultado = mysqli_fetch_assoc($result);
-     	echo $resultado;
 
-     	if(!empty($resultado)){
-        	echo 'fudeu';
-        	header("Location: cadastro.php");
-      	} else {
+
+
+     	if(!empty($result)){
         	header("Location: index.php");
-      	} 
+      	} else {
+        	echo "Tchubirabiron";
+      	}
 
 	}
 
