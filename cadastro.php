@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,44 +20,44 @@
         	<img class="small" src="images/EasyRide.png" height="300px">
     </div>
     <div class="container">
-      <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+      <form method = "POST" action="enviarCadastro.php">
         <div class="row">
           <div class="input-field col s6">
-            <input id="name" type="text" class="validate">
+            <input name="nome" id="name" type="text" class="validate">
             <label for="name" class="white-text">Nome</label>
           </div>
           <div class="input-field col s6">
-           <input type="date" class="datepicker">
-           <label for="birthdate" class="white-text">Data de nascimento</label>
+           <input id="data" name="data" type="date" class="datepicker">
+           <label for="data" class="white-text">Data de nascimento</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input id="email" type="email" class="validate">
-            <label for="email" class="white-text" data-error="wrong" data-success="right">Nome de usuário</label>
+            <input name="user" id="user" type="text" class="validate">
+            <label for="user" class="white-text" data-error="wrong" data-success="right">Nome de usuário</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s6">
-            <input id="email" type="email" class="validate">
+            <input name="email" id="email" type="email" class="validate">
             <label for="email" class="white-text">Email</label>
           </div>
           <div class="input-field col s6">
-            <input id="password" type="password" class="validate">
+            <input name="senha" id="password" type="password" class="validate">
             <label for="password" class="white-text">Password</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s6">
-            <select>
+            <select name="sexo">
               <option value="" disabled selected>Escolha seu sexo</option>
-              <option value="1">Masculino</option>
-              <option value="2">Feminino</option>
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
             </select>
             <label class="white-text">Sexo</label>
           </div>
           <div class="input-field col s6">
-            <input id="telefone" type="tel" class="validate">
+            <input name="telefone" id="telefone" type="text" class="validate">
             <label for="telefone" class="white-text">Telefone</label>
           </div>
         </div>
