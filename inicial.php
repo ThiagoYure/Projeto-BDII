@@ -79,7 +79,7 @@
             selectMonths: true, // Creates a dropdown to control month
             selectYears: 100, // Creates a dropdown of 15 years to control year
             min: new Date(1920, 0, 1),
-            max: new Date()
+            max: new Date(2023,0,1)
           });
           $('.timepicker').pickatime({
             default: 'now', // Set default time

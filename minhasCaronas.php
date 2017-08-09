@@ -1,21 +1,15 @@
 <!DOCTYPE html>
   <html>
     <head>
-    <?php
-      session_start();
-      include('conexao.php');
-      if((!isset ($_SESSION['email']) == true) and (!isset ($_SESSION['senha']) == true)){
-        unset($_SESSION['login']);
-        unset($_SESSION['senha']);
-        header('location:index.php');
-      }
-      $userLogado = $_SESSION['email'];
-      if($conn != null){
-        $sql = "'Select c.origem, c.destino, c.data, c.hora
-        from carona c, pontosdeparada p
-        where c.usuario = p.usuario
-        and c.usuario = '$email'"
-      }
+      <?php
+        session_start();
+        include('conexao.php');
+        if((!isset ($_SESSION['email']) == true) and (!isset ($_SESSION['senha']) == true)){
+          unset($_SESSION['login']);
+          unset($_SESSION['senha']);
+          header('location:index.php');
+        };
+        $userLogado = $_SESSION['email'];
       ?>
       <title>EasyRide</title>
       <meta charset="UTF-8">
@@ -50,7 +44,44 @@
       </div></br></br></br>
       <div class="container teal accent-4">
         <h4 class="white-text center">Minhas Caronas</h4>
-        <ul id="caronas" class="collection">  
+        <ul id="caronas" class="collection"> 
+        <?php
+          if ($conn!=null) {
+          # code...
+            $sql = "SELECT origem,destino,data,distancia,tempo,hora,ajuda FROM carona WHERE usuario = '$userLogado'";
+            $result = mysqli_query($conn,$sql);
+            if($result === FALSE) { 
+              die(mysqli_error($conn));
+            };
+            while ($resultado = mysqli_fetch_assoc($result)) {
+              $data = $resultado['data'];
+              $hora = $resultado['hora'];
+              $destino = $resultado['destino'];
+              $origem = $resultado['origem'];
+              $ajuda = $resultado['ajuda'];
+              $sql1 = "SELECT parada FROM pontosdeparada WHERE datacarona = '$data' and horacarona = '$hora' and usuario = '$userLogado'";
+              $passagens = array();
+              $result1 = mysqli_query($conn,$sql1);
+              if($result1 === FALSE) { 
+                die(mysqli_error($conn));
+              };
+              while($resultado1 = mysqli_fetch_assoc($result1)){
+                $passagens[] = $resultado1['parada'];
+              }
+              $jsonPassagens = json_encode($passagens);
+              print("<li class='collection-item light-blue accent-4 white-text'><a href='atualizarCarona.php?data=$data&hora=$hora' class='white-text'>
+                Origem: ".$resultado['origem']."</br>
+                Destino: ".$resultado['destino']."</br>
+                Data da Carona: ".$resultado['data']."</br>
+                Hora da Carona: ".$resultado['hora']."</br>
+                Distancia da Carona: ".$resultado['distancia']."</br>
+                Tempo de duração: ".$resultado['tempo']."</br>
+                Ajuda de custo: ".$resultado['ajuda']."</br>
+              </a></li>") ; 
+            }
+
+          } 
+        ?>
         </ul>
       </div>
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -63,7 +94,7 @@
             selectMonths: true, // Creates a dropdown to control month
             selectYears: 100, // Creates a dropdown of 15 years to control year
             min: new Date(1920, 0, 1),
-            max: new Date()
+            max: new Date(2023,0,1)
           });
           $('.timepicker').pickatime({
             default: 'now', // Set default time
